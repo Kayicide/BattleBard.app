@@ -6,9 +6,9 @@ name: Build, Test, Deploy
 on:
 
   pull_request:
-    branches: [ main ]
+    branches: [main]
     paths-ignore:
-    - 'README.md'
+      - "README.md"
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '7.x'
+          dotnet-version: "7.x"
           include-prerelease: true
 
       - name: Build with dotnet
@@ -34,34 +34,12 @@ jobs:
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
-  test: 
-      runs-on: windows-latest
-      needs: build
-      
-      steps:
-      - uses: actions/checkout@v2
-          
-      - name: Run Tests
-        run: dotnet test --configuration Release
-
-  deploy:
+  test:
     runs-on: windows-latest
-    needs: test
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    needs: build
 
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: .net-app
+      - uses: actions/checkout@v2
 
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'CampaignCompanion'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2F81C3D6DC9F4405AB712CCFC986DBD2 }}
-          package: .
+      - name: Run Tests
+        run: dotnet test --configuration Release
