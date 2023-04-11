@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -14,5 +14,17 @@
   <ItemGroup>
     <ProjectReference Include="..\Shared\Web.Shared.csproj" />
   </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="npm install" />
+    <Exec Command="npm run build" />
+  </Target>
+
+  <Target Name="UpdateTailwindCSS" BeforeTargets="Compile">
+    <Exec Command="npx tailwindcss .\Styles\app.css -o .\wwwroot\css\app.min.css" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Error building CSS file" />
+  </Target>
 
 </Project>
