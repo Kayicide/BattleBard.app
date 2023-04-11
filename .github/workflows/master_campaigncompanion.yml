@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: myapp-${{ github.sha }}
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: myapp-${{ github.sha }}
   test:
     runs-on: windows-latest
     needs: build
