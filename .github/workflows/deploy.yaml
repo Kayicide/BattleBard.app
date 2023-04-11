@@ -20,8 +20,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: myapp
-          path: test/myapp
+          name: myapp-${{ github.sha }}
           
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
