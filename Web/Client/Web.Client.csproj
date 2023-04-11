@@ -21,7 +21,7 @@
   </Target>
 
   <Target Name="UpdateTailwindCSS" BeforeTargets="Compile">
-    <Exec Command="npx tailwindcss .\Styles\app.css -o .\wwwroot\css\app.min.css" ContinueOnError="true">
+    <Exec Command="npx tailwindcss -i .\Styles\app.css -o .\wwwroot\app.css" ContinueOnError="true">
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
     </Exec>
     <Error Condition="'$(ErrorCode)' != '0'" Text="Error building CSS file" />
