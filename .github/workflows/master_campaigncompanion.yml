@@ -4,7 +4,6 @@
 name: Build, Test, Deploy
 
 on:
-
   pull_request:
     branches: [main]
     paths-ignore:
@@ -27,10 +26,13 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o myapp-${{ github.sha }}
-
+        run: dotnet publish -c Release -o test/myapp
+        
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
+        with:
+          name: myapp
+          path: test/myapp
   test:
     runs-on: windows-latest
     needs: build
