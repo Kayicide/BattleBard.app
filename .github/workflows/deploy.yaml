@@ -1,0 +1,40 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: deploy
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  download:
+    runs-on: windows-latest
+    if: github.event.pull_request.merged == true
+
+    steps:
+      - name: Download workflow artifact
+        uses: dawidd6/action-download-artifact@v2.26.1
+
+  deploy:
+    runs-on: windows-latest
+    needs: download
+    environment:
+      name: "Production"
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: .net-app
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: "CampaignCompanion"
+          slot-name: "Production"
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2F81C3D6DC9F4405AB712CCFC986DBD2 }}
+          package: .
