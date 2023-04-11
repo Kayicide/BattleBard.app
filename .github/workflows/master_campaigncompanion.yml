@@ -26,13 +26,13 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o test/myapp
+        run: dotnet publish -c Release -o myapp-${{ github.sha }}
         
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
-          name: myapp
-          path: test/myapp
+          name: myapp-${{ github.sha }}
+          path: myapp.out
   test:
     runs-on: windows-latest
     needs: build
