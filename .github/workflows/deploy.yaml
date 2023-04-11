@@ -9,26 +9,18 @@ on:
       - closed
 
 jobs:
-  download:
-    runs-on: windows-latest
-    if: github.event.pull_request.merged == true
-
-    steps:
-      - name: Download workflow artifact
-        uses: dawidd6/action-download-artifact@v2.26.1
 
   deploy:
     runs-on: windows-latest
-    needs: download
     environment:
       name: "Production"
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
-          name: .net-app
+          name: ${{env.DOTNET_ROOT}}/myapp-${{ github.sha }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
