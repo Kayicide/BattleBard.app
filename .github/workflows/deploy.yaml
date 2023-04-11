@@ -20,8 +20,8 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: ${{env.DOTNET_ROOT}}/myapp-${{ github.sha }}
-
+          name: myapp-${{ github.sha }}
+          
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
