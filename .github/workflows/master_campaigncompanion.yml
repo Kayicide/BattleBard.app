@@ -32,7 +32,7 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
-          name: ${{env.DOTNET_ROOT}}/myapp-${{ github.sha }}
+          name: myapp-${{ github.sha }}
           path: ${{env.DOTNET_ROOT}}/myapp
   test:
     runs-on: windows-latest
