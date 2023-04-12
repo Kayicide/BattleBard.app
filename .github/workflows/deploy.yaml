@@ -18,10 +18,11 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v3
+        uses: dawidd6/action-download-artifact@v2
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          workflow: master_campaigncompanion.yml
+          workflow_conclusion: success
           
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
