@@ -19,3 +19,15 @@
     right: 0.75rem;
     top: 0.5rem;
 }
+
+@layer components {
+    .rounded-layout-reset{
+        border-top-right-radius: 0 !important;
+    }
+
+    .rounded-nav-reset{
+        border-top-right-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+}
