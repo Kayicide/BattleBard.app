@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Web.Server</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Client\Web.Client.csproj" />
-    <ProjectReference Include="..\Shared\Web.Shared.csproj" />
+    <ProjectReference Include="..\Client\BattleBard.Client.csproj" />
+    <ProjectReference Include="..\Shared\BattleBard.Shared.csproj" />
   </ItemGroup>
 
 
