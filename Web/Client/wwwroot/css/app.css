@@ -516,6 +516,11 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
 .flex {
   display: flex;
 }
@@ -717,6 +722,11 @@ video {
 }
 
 @media (min-width: 1024px) {
+  .lg\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
   .lg\:ml-1 {
     margin-left: 0.25rem;
   }
