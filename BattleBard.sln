@@ -5,13 +5,13 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D90BE615-CE18-450B-8063-7C7E756CD3AC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CampaignCompanion", "CampaignCompanion", "{9F41D7D3-C9E7-45BC-AEA7-B9E4A7748BF2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BattleBard", "BattleBard", "{9F41D7D3-C9E7-45BC-AEA7-B9E4A7748BF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Server", "Web\Server\Web.Server.csproj", "{86894BEF-0E95-4627-9EDA-E28B472D38ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleBard.Server", "Web\Server\BattleBard.Server.csproj", "{86894BEF-0E95-4627-9EDA-E28B472D38ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Client", "Web\Client\Web.Client.csproj", "{2483E279-2EF2-4DF5-B7FA-4E15312B4958}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleBard.Client", "Web\Client\BattleBard.Client.csproj", "{2483E279-2EF2-4DF5-B7FA-4E15312B4958}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Shared", "Web\Shared\Web.Shared.csproj", "{FB4E9277-6AC0-4D3D-82C7-B635F3222225}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleBard.Shared", "Web\Shared\BattleBard.Shared.csproj", "{FB4E9277-6AC0-4D3D-82C7-B635F3222225}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{BFA75416-B132-4043-97ED-860D7CC19373}"
 EndProject
