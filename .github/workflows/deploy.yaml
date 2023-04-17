@@ -13,22 +13,20 @@ jobs:
   deploy:
     runs-on: windows-latest
     environment:
-      name: "Production"
+      name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
       - name: Download artifact from build job
-        uses: dawidd6/action-download-artifact@v2
+        uses: actions/download-artifact@v2
         with:
           name: .net-app
-          workflow: master_campaigncompanion.yml
-          workflow_conclusion: success
-          
+
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: "CampaignCompanion"
-          slot-name: "Production"
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2F81C3D6DC9F4405AB712CCFC986DBD2 }}
+          app-name: 'BattleBard'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D163F0EEB3C34D6F9EAE76E7E80FDD7B }}
           package: .
