@@ -6,6 +6,8 @@ namespace BattleBard.Features;
 public interface IUserService
 {
     public Task<List<User>> GetUsers();
+    public Task<User> CreateUser();
+    public Task<User?> GetUserById(Guid id);
 }
 
 public class UserService : IUserService
@@ -18,5 +20,21 @@ public class UserService : IUserService
     public async Task<List<User>> GetUsers()
     {
         return await _userRepository.GetUsers();
+    }
+
+    public async Task<User?> GetUserById(Guid id)
+    {
+        return await _userRepository.GetUserById(id);
+    }
+
+    public async Task<User> CreateUser()
+    {
+        var user = new User()
+        {
+            Id = Guid.NewGuid(),
+            Username = "Test"
+        };
+
+        return await _userRepository.CreateUser(user);
     }
 }
