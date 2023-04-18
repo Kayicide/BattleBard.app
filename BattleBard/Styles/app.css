@@ -1,0 +1,21 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .rounded-layout-reset {
+        border-top-right-radius: 0 !important;
+    }
+
+    .rounded-nav-reset {
+        border-top-right-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+
+    .nav-active {
+        @apply bg-gray-800;
+        --tw-text-opacity: 1;
+        color: rgb(255 255 255 / 1) !important;
+    }
+}
